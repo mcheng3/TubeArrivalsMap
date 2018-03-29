@@ -1,6 +1,6 @@
  # DataNotStatic by Team PikaMoo-PikaMoo
 
-Ishtiaque Mahdi, Kerry Chen, Phillip Park, Michael Cheng
+Ishtiaque Mahdi (Project Manager) , Kerry Chen, Phillip Park, Michael Cheng
 
 ## Data Description and Source
 
