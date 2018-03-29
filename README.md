@@ -4,7 +4,7 @@ Ishtiaque Mahdi (Project Manager) , Kerry Chen, Phillip Park, Michael Cheng
 
 ## Data Description and Source
 
-  The data we used is in JSON format and XML. It contains information about the Tube, DLR, and TfL Rail. The data has names of stations as well as expected arrival time. The data is also in real time because we are getting it from the Transport for London Unified API. It can be found here: https://api-portal.tfl.gov.uk/
+  The data we used is in JSON format and XML. It contains information about the Tube, DLR, and TfL Rail. The data has names of stations as well as expected arrival time. The data is also in real time because we are getting it from the Transport for London Unified API. It can be found here: https://api-portal.tfl.gov.uk/ . For example, we can get the arrival time predictions for all stations on the Tube using this API call https://api.tfl.gov.uk/Mode/tube/Arrivals.
   
 ## Relevance And Significance  
   
