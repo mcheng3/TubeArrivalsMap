@@ -24,10 +24,14 @@ def coords():
     stations = r.json()
     stops = []
     for station in stations:
-        if "tube" in station["modes"] or "dlr" in station["modes"] or "tflrail" in station["modes"]:
+        if "tube" in station["modes"] or "dlr" in station["modes"]:
             stops.append(station)
     print stops
-    return stops
+    return str(len(stops))
+
+'''@app.route('/display_coords')
+def display_coords():
+    r = requests.get('/coords')'''
 
 if __name__ == "__main__":
     app.debug = True
