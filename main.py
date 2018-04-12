@@ -30,12 +30,15 @@ def coords():
         lines.append(line['id'])
     stops = {}
     for line in lines:
+        stopData = {}
         print 'https://api.tfl.gov.uk/line/'+line+'/route/sequence/inbound'
         r= requests.get('https://api.tfl.gov.uk/line/'+line+'/route/sequence/inbound', data={"app_id":app_id, "app_key":app_key})
         sequences = r.json()
         for sequence in sequences['stopPointSequences']:
             if sequence['branchId'] == 0:
-                stops[line] = sequence['stopPoint'] 
+                stopData['name'] = sequences['lineName']
+                stopData['stops'] = sequence['stopPoint']
+            stops[line] = stopData
     #print stops
     stops_file = open("static/stops.json", "w")
     #print json.dumps(stops)
