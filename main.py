@@ -2,6 +2,8 @@ from flask import Flask, render_template, session, redirect, url_for, flash
 import random
 import os
 import requests
+from ast import literal_eval
+import ast, json
 
 key_file = open("keys.txt", "r")
 app_id = key_file.readline()
@@ -27,9 +29,10 @@ def coords():
         if "tube" in station["modes"] or "dlr" in station["modes"]:
             stops.append(station)
     #print stops
-    stops_file = open("stops.json", "w")
-    stops_file.write(str(stops))
-    return str((stops))
+    stops_file = open("static/stops.json", "w")
+    #print json.dumps(stops)
+    stops_file.write(json.dumps(stops))
+    return render_template("test.html", stops=stops)
 
 '''@app.route('/display_coords')
 def display_coords():
