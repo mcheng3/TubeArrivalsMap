@@ -1,37 +1,37 @@
-{% extends basic.html %}
+{% extends "base.html" %}
 {% block body %}
-<form>
+<form action = "/map" method ="POST">
   <table>
     <tr>
       <td>
-	<Button type = "submit" value = "Bakerloo"> form Bakerloo</button>
+	<Button type = "submit" name = "way" value = "Bakerloo"> Bakerloo</button>
       </td>
       <td>
-	<Button type = "submit" value = "Hammersmith & City">Hammersmith & City</button>
+	<Button type = "submit" name = "way" value = "Hammersmith & City">Hammersmith & City</button>
       </td>
       <td>
-	<Button type = "submit" value = "Victoria">Victoria</button>
+	<Button type = "submit" name = "way" value = "Victoria">Victoria</button>
       </td>
     </tr>
     
     <tr>
       <td>
-	<Button type = "submit" value = "Central">Central</button>
+	<Button type = "submit" name = "way" value = "Central">Central</button>
       </td>
       <td>
-	Jubilee
+	<Button type = "submit" name = "way" value = "Jubilee">Jubilee</button>
     </td>
       <td>
-	<Button type = "submit" value = "See Whole Map">See Whole Map</button>
+	<Button type = "submit" name = "way" value = "See Whole Map">See Whole Map</button>
       </td>
     </tr>
     
     <tr>
       <td>
-	<Button type = "submit" value = "Circle">Circle</button>
+	<Button type = "submit" name = "way" value = "Circle">Circle</button>
       </td>
       <td>
-	<Button type = "submit" value = "Northern">Northern</button>
+	<Button type = "submit" name = "way" value = "Northern">Northern</button>
       </td>
       <td>
 	
@@ -40,10 +40,10 @@
     
     <tr>
       <td>
-	<Button type = "submit" value = "District">District</button>
+	<Button type = "submit" name = "way" value = "District">District</button>
       </td>
       <td>
-	<Button type = "submit" value = "Piccadilly">Piccadilly</button>
+	<Button type = "submit" name = "way" value = "Piccadilly">Piccadilly</button>
       </td>
       <td>
       </td>
