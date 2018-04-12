@@ -1,24 +1,53 @@
-<!doctype html>
-<head>
-  <title> </title>
-</head>
-
-<body>
-  <table style = "background-color: blue;">
+{% extends basic.html %}
+{% block body %}
+<form>
+  <table>
     <tr>
       <td>
-	<img src = "../images/tfllogo.jpg">
+	<Button type = "submit" value = "Bakerloo"> form Bakerloo</button>
       </td>
       <td>
-	{% block route %}
-	{% endblock %}
+	<Button type = "submit" value = "Hammersmith & City">Hammersmith & City</button>
       </td>
       <td>
-	<img src = "../images/underground.png">
+	<Button type = "submit" value = "Victoria">Victoria</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+	<Button type = "submit" value = "Central">Central</button>
+      </td>
+      <td>
+	Jubilee
+    </td>
+      <td>
+	<Button type = "submit" value = "See Whole Map">See Whole Map</button>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+	<Button type = "submit" value = "Circle">Circle</button>
+      </td>
+      <td>
+	<Button type = "submit" value = "Northern">Northern</button>
+      </td>
+      <td>
+	
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+	<Button type = "submit" value = "District">District</button>
+      </td>
+      <td>
+	<Button type = "submit" value = "Piccadilly">Piccadilly</button>
+      </td>
+      <td>
       </td>
     </tr>
   </table>
-  {% block body %}
-  {% endblock %}
-</body>
-</html>
+</form>
+{% endblock %}
