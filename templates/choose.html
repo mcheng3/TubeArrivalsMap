@@ -1,24 +1,50 @@
-<!doctype html>
-<head>
-  <title> </title>
-</head>
+{% extends basic.html &}
+<table>
+  <tr>
+    <td>
+      Bakerloo
+    </td>
+    <td>
+      Hammersmith & City
+    </td>
+    <td>
+      Victoria
+    </td>
+  </tr>
 
-<body>
-  <table style = "background-color: blue;">
-    <tr>
-      <td>
-	<img src = "../images/tfllogo.jpg">
-      </td>
-      <td>
-	{% block route %}
-	{% endblock %}
-      </td>
-      <td>
-	<img src = "../images/underground.png">
-      </td>
-    </tr>
-  </table>
-  {% block body %}
-  {% endblock %}
-</body>
-</html>
+  <tr>
+    <td>
+      Central
+    </td>
+    <td>
+      Jubilee
+    </td>
+    <td>
+      See Whole Map
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Circle
+    </td>
+    <td>
+      Northern
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      District
+    </td>
+    <td>
+      Piccadilly
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
+{% endblock %}

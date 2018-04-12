@@ -1,0 +1,24 @@
+<!doctype html>
+<head>
+  <title> </title>
+</head>
+
+<body>
+  <table style = "background-color: blue;">
+    <tr>
+      <td>
+	<img src = "../images/tfllogo.jpg">
+      </td>
+      <td>
+	{% block route %}
+	{% endblock %}
+      </td>
+      <td>
+	<img src = "../images/underground.png">
+      </td>
+    </tr>
+  </table>
+  {% block body %}
+  {% endblock %}
+</body>
+</html>
