@@ -26,8 +26,10 @@ def coords():
     for station in stations:
         if "tube" in station["modes"] or "dlr" in station["modes"]:
             stops.append(station)
-    print stops
-    return str(len(stops))
+    #print stops
+    stops_file = open("stops.json", "w")
+    stops_file.write(str(stops))
+    return str((stops))
 
 '''@app.route('/display_coords')
 def display_coords():
