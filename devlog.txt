@@ -17,4 +17,16 @@ ______   ______   __   __   __       ______   _______
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ishtiaqueM 2018--03-29 12:35 AM
-- Added devlog.txt, mockup finished, README finished, added submod  
+- Added devlog.txt, mockup finished, README finished, added submod
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ishtiaqueM 2018--04-10 2:30  PM
+-Setup main flask app
+
+kerryC 2018--04-10 2:40  PM
+-Worked on base html file
+
+michaelC 2018--04-10 2:40  PM
+-Data organization for API of trains + data for map genration
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
