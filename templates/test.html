@@ -1,0 +1,8 @@
+{% extends "choose.html" %}
+{% block body %}
+{%for stop in stops%}
+<ul>
+<li>{{stop.commonName}}: <ul>{%for line in stop.lines%} <li>{{line.name}}</li> {%endfor%}</ul></li>
+</ul>
+{%endfor%}
+{% endblock %}
