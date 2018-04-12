@@ -22,7 +22,7 @@ def map():
 
 @app.route('/coords')
 def coords():
-    l = requests.get('https://api.tfl.gov.uk/line/mode/tube', data={"app_id":app_id, "app_key":app_key})
+    '''l = requests.get('https://api.tfl.gov.uk/line/mode/tube', data={"app_id":app_id, "app_key":app_key})
     print l
     lines_data = l.json()
     lines = []
@@ -42,7 +42,10 @@ def coords():
     #print stops
     stops_file = open("static/stops.json", "w")
     #print json.dumps(stops)
-    stops_file.write(json.dumps(stops))
+    stops_file.write(json.dumps(stops))'''
+    stops_file = open("static/stops.json", "r")
+    stops = stops_file.readline()
+    stops = json.loads(stops)
     return render_template("test.html", stops=stops)
 
 '''@app.route('/display_coords')

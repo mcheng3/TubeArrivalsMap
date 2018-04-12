@@ -1,8 +1,8 @@
 {% extends "choose.html" %}
 {% block body %}
-{%for stop in stops%}
+{%for name, line in stops.items()%}
 <ul>
-<li>{{stop.commonName}}: <ul>{%for line in stop.lines%} <li>{{line.name}}</li> {%endfor%}</ul></li>
+<li>{{line["name"]}}: <ul>{%for stop in line.stops%} <li>{{stop.name}}: {{stop.lat}}, {{stop.lon}}</li> {%endfor%}</ul></li>
 </ul>
 {%endfor%}
 {% endblock %}
