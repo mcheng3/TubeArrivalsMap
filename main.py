@@ -22,12 +22,20 @@ def map():
 
 @app.route('/coords')
 def coords():
-    r= requests.get('https://api.tfl.gov.uk/StopPoint/Type/NaptanMetroStation', data={"app_id":app_id, "app_key":app_key})
-    stations = r.json()
-    stops = []
-    for station in stations:
-        if "tube" in station["modes"] or "dlr" in station["modes"]:
-            stops.append(station)
+    l = requests.get('https://api.tfl.gov.uk/line/mode/tube', data={"app_id":app_id, "app_key":app_key})
+    print l
+    lines_data = l.json()
+    lines = []
+    for line in lines_data:
+        lines.append(line['id'])
+    stops = {}
+    for line in lines:
+        print 'https://api.tfl.gov.uk/line/'+line+'/route/sequence/inbound'
+        r= requests.get('https://api.tfl.gov.uk/line/'+line+'/route/sequence/inbound', data={"app_id":app_id, "app_key":app_key})
+        sequences = r.json()
+        for sequence in sequences['stopPointSequences']:
+            if sequence['branchId'] == 0:
+                stops[line] = sequence['stopPoint'] 
     #print stops
     stops_file = open("static/stops.json", "w")
     #print json.dumps(stops)
