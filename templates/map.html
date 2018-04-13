@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% block route %}
-{{highway}}
 {% endblock %}
-{% block body %}
 
+{% block body %}
+<svg xmlns="http://www.w3.org/2000/svg" id="map" height="900px" width="1500px" style="border-style: solid; background-color: lightgrey;">
+</svg>
+<span id="test"></span>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='map.js') }}" type="text/javascript"></script>
 {% endblock %}

@@ -32,4 +32,6 @@ michaelC 2018--04-10 2:40  PM
 michaelC 2018--04-12 18:10
 -Updated the data, and put it into static/stops.json. Sample data can be displayed at /coords
 
+michaelC 2018--04-12 18:10
+-Update map.js and map.html. Now displays map (beta version).
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

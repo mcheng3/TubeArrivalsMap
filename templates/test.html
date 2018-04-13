@@ -2,7 +2,7 @@
 {% block body %}
 {%for name, line in stops.items()%}
 <ul>
-<li>{{line["name"]}}: <ul>{%for stop in line.stops%} <li>{{stop.name}}: {{stop.lat}}, {{stop.lon}}</li> {%endfor%}</ul></li>
+<li>{{line["name"]}}: <ul>{%for stop in line.stops%} <li>{{stop.name}}: {{(stop.lat * 1000)-51400}}, {{(stop.lon *1000)+ 350}}</li> {%endfor%}</ul></li>
 </ul>
 {%endfor%}
 {% endblock %}

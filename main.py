@@ -16,12 +16,12 @@ def root_route():
     return render_template("choose.html")
 
 
-@app.route('/map', methods = ["POST","GET"])
+@app.route('/map')
 def map():
-    return render_template("map.html", highway = request.form['way'])
+    return render_template("map.html")
 
-@app.route('/coords')
-def coords():
+@app.route('/test')
+def test():
     '''l = requests.get('https://api.tfl.gov.uk/line/mode/tube', data={"app_id":app_id, "app_key":app_key})
     print l
     lines_data = l.json()
@@ -48,9 +48,11 @@ def coords():
     stops = json.loads(stops)
     return render_template("test.html", stops=stops)
 
-'''@app.route('/display_coords')
-def display_coords():
-    r = requests.get('/coords')'''
+@app.route('/coords')
+def coords():
+    stops_file = open("static/stops.json", "r")
+    stops = stops_file.readline()
+    return stops
 
 if __name__ == "__main__":
     app.debug = True
