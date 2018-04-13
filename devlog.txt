@@ -27,11 +27,20 @@ kerryC 2018--04-10 2:40  PM
 -Worked on base html file
 
 michaelC 2018--04-10 2:40  PM
--Data organization for API of trains + data for map genration
+-Data organization for API of trains + data for map generation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+kerryC ishtiaqueM 2018--04--11 2:37 PM
+-Finised up basic html skeleton and routes
 
+michaelC ishtiaqueM 2018--04-12 2:45 PM
+-Reorganized data and figured out how to deal with branching train lines.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 michaelC 2018--04-12 18:10
 -Updated the data, and put it into static/stops.json. Sample data can be displayed at /coords
 
 michaelC 2018--04-12 18:10
 -Update map.js and map.html. Now displays map (beta version).
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+phillipP 2018--04--13 01:20
+- Added css and bootstrap

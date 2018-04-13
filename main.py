@@ -3,7 +3,7 @@ import random
 import os
 import requests
 from ast import literal_eval
-import ast, json
+import ast, json, urllib2
 
 key_file = open("keys.txt", "r")
 app_id = key_file.readline()
@@ -53,6 +53,14 @@ def coords():
     stops_file = open("static/stops.json", "r")
     stops = stops_file.readline()
     return stops
+
+@app.route('/times')
+def times():
+    '''u = urllib2.urlopen("https://api.tfl.gov.uk/journey/journeyresults/westminster/to/bank")
+    data_string = u.read()
+    dic = json.loads(data_string)'''
+    return u
+
 
 if __name__ == "__main__":
     app.debug = True
