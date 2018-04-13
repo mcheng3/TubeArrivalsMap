@@ -60,20 +60,20 @@ function draw(lines, line, displayNames){
     	return Math.floor(d[0] * 3000 + .35 * 3000);
     });
     paths.attr("y1",function(d){
-    	return parseInt(container.attr("height")) - Math.floor(d[1] * 3000 - 51.4 * 3000);
+    	return parseInt(container.attr("height")) - Math.floor(d[1] * 3600 - 51.45 * 3600);
     });
     paths.attr("x2",function(d){
     	return Math.floor(d[2] * 3000 + .35 * 3000);
     });
     paths.attr("y2",function(d){
-    	return parseInt(container.attr("height")) - Math.floor(d[3] * 3000 - 51.4 * 3000);
+    	return parseInt(container.attr("height")) - Math.floor(d[3] * 3600 - 51.45 * 3600);
     });
     paths.classed(line, true)
     console.log(colors[line]);
     paths.attr("style", "stroke:"+colors[line]+";stroke-width:3px;")
     stops.attr("cy", function(d){
     	//console.log(d['lat'] * 3000 - 51.4 * 3000);
-    	return parseInt(container.attr("height")) - Math.floor(d['lat'] * 3000 - 51.4 * 3000);
+    	return parseInt(container.attr("height")) - Math.floor(d['lat'] * 3600 - 51.45 * 3600);
     });
     stops.attr("cx", function(d){
     	//console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
@@ -83,7 +83,7 @@ function draw(lines, line, displayNames){
 	    var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
 	    names.attr("y", function(d){
 	    	//console.log(d['lat'] * 3000 - 51.4 * 3000);
-	    	return parseInt(container.attr("height")) - Math.floor(d['lat'] * 3000 - 51.4 * 3000) - 6;
+	    	return parseInt(container.attr("height")) - Math.floor(d['lat'] * 3600 - 51.45 * 3600) - 6;
 	    });
 	    names.attr("x", function(d){
 	    	//console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
