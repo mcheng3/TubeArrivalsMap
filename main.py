@@ -5,9 +5,9 @@ import requests
 from ast import literal_eval
 import ast, json
 
-key_file = open("keys.txt", "r")
-app_id = key_file.readline()
-app_key = key_file.readline()
+#key_file = open("keys.txt", "r")
+#app_id = key_file.readline()
+#app_key = key_file.readline()
 
 app = Flask(__name__)
 
