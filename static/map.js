@@ -43,7 +43,7 @@ function draw(lines, line, displayNames){
 	   return 1000-Math.floor(d[0]/100);
     });***/
     var container = d3.select("svg");
-    var stops = container.selectAll("."+line+"-stop").data(lines[line]['stops']).enter().append("circle");
+   
     var path_coords = [];
     for (var i = 0; i <= lines[line]['stops'].length - 2; i++){
     	var line_coords = [];
@@ -55,6 +55,7 @@ function draw(lines, line, displayNames){
     };
     //console.log(path_coords);
     var paths = container.selectAll("."+line+"-path").data(path_coords).enter().append("line");
+     var stops = container.selectAll("."+line+"-stop").data(lines[line]['stops']).enter().append("circle");
     paths.attr("x1",function(d){
     	console.log(d);
     	return Math.floor(d[0] * 3000 + .35 * 3000);
@@ -93,7 +94,7 @@ function draw(lines, line, displayNames){
 	    	return d['name'].slice(0, d['name'].indexOf('Underground', 0));
 	    });
 	}
-    stops.attr("r", 5).attr("stroke","black").attr("stroke-width","1").attr("fill","white");
+    stops.attr("r", 5).attr("stroke","black").attr("stroke-width","2").attr("fill","white");
 	stops.classed(line, true)
 	
 };
