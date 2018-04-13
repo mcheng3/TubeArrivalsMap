@@ -1,3 +1,5 @@
+
+
 var colors = {"bakerloo": '#B36305', 'central':'#e32017', 'circle':'#00782A','hammersmith-city':'#f3a9bb','jubilee':'#a0a5a9',
 			  'metropolitan':'#9b0056',
 			  'northern':'#000000',
@@ -18,7 +20,8 @@ function getCoords(){
 
 function drawAll(lines){
 	for(var line in lines){
-		draw(lines, line, false);
+		if(line == "central") draw(lines, line, true);
+		else draw(lines, line, false);
 	}
 }
 function draw(lines, line, displayNames){
