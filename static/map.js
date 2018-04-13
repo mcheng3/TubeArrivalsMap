@@ -1,6 +1,6 @@
 
 
-var colors = {"bakerloo": '#B36305', 'central':'#e32017', 'circle':'#00782A','hammersmith-city':'#f3a9bb','jubilee':'#a0a5a9',
+var colors = {"bakerloo": '#B36305', 'central':'#e32017', 'circle':'#ffd300','hammersmith-city':'#f3a9bb','jubilee':'#a0a5a9','district':'#00782a',
 			  'metropolitan':'#9b0056',
 			  'northern':'#000000',
 			  'piccadilly':'#003688',
@@ -58,13 +58,13 @@ function draw(lines, line, displayNames){
      var stops = container.selectAll("."+line+"-stop").data(lines[line]['stops']).enter().append("circle");
     paths.attr("x1",function(d){
     	console.log(d);
-    	return Math.floor(d[0] * 3000 + .35 * 3000);
+    	return Math.floor(d[0] * 2800 + .34 * 2800);
     });
     paths.attr("y1",function(d){
     	return parseInt(container.attr("height")) - Math.floor(d[1] * 3600 - 51.45 * 3600);
     });
     paths.attr("x2",function(d){
-    	return Math.floor(d[2] * 3000 + .35 * 3000);
+    	return Math.floor(d[2] * 2800 + .34 * 2800);
     });
     paths.attr("y2",function(d){
     	return parseInt(container.attr("height")) - Math.floor(d[3] * 3600 - 51.45 * 3600);
@@ -78,7 +78,7 @@ function draw(lines, line, displayNames){
     });
     stops.attr("cx", function(d){
     	//console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
-    	return Math.floor(d['lon'] * 3000 + .35 * 3000);
+    	return Math.floor(d['lon'] * 2800 + .34 * 2800);
     });
     if(displayNames){
 	    var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
@@ -88,11 +88,13 @@ function draw(lines, line, displayNames){
 	    });
 	    names.attr("x", function(d){
 	    	//console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
-	    	return Math.floor(d['lon'] * 3000 + .35 * 3000)+10;
+	    	return Math.floor(d['lon'] * 2800 + .34 * 2800)+10;
 	    });
+	//names.attr("style","color:white;");
 	    names.text(function(d){
 	    	return d['name'].slice(0, d['name'].indexOf('Underground', 0));
 	    });
+	
 	}
     stops.attr("r", 5).attr("stroke","black").attr("stroke-width","2").attr("fill","white");
 	stops.classed(line, true)
