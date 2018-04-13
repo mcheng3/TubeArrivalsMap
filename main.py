@@ -56,10 +56,10 @@ def coords():
 
 @app.route('/times')
 def times():
-    '''u = urllib2.urlopen("https://api.tfl.gov.uk/journey/journeyresults/westminster/to/bank")
-    data_string = u.read()
-    dic = json.loads(data_string)'''
-    return u
+    u = requests.get("https://api.tfl.gov.uk/Mode/tube/Arrivals", data={"app_id":app_id, "app_key":app_key})
+    data_string = u.json()
+    dic = json.dumps(data_string)
+    return dic
 
 
 if __name__ == "__main__":

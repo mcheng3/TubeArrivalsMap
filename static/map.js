@@ -58,7 +58,7 @@ function draw(lines, line, displayNames){
      var stops = container.selectAll("."+line+"-stop").data(lines[line]['stops']).enter().append("circle");
     paths.attr("x1",function(d){
     	console.log(d);
-    	return Math.floor(d[0] * 2800 + .34 * 2800);
+    	return Math.floor((d[0]+ .34) * 2800);
     });
     paths.attr("y1",function(d){
     	return parseInt(container.attr("height")) - Math.floor(d[1] * 3600 - 51.45 * 3600);
@@ -90,7 +90,7 @@ function draw(lines, line, displayNames){
 	    	//console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
 	    	return Math.floor(d['lon'] * 2800 + .34 * 2800)+10;
 	    });
-	//names.attr("style","color:white;");
+	names.attr("stroke","black").attr("stroke-width", "1px").attr("fill", "white");
 	    names.text(function(d){
 	    	return d['name'].slice(0, d['name'].indexOf('Underground', 0));
 	    });
