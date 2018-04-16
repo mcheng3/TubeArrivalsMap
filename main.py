@@ -13,12 +13,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def root_route():
-    return render_template("choose.html")
+    return render_template("map.html", name ="See Whole Map")
 
 
-@app.route('/map')
+@app.route('/map' method = ['POST', 'GET'])
 def map():
-    return render_template("map.html")
+    bounds = request.form['bound']
+    return render_template("map.html", name = request.form['way'])
 
 @app.route('/test')
 def test():

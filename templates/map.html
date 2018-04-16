@@ -1,42 +1,118 @@
-{% extends "base.html" %}
-{% block route %}
-{% endblock %}
 
-{% block body %}
+<!doctype html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  <style>
+    body {font-family: 'Hammersmith One', sans-serif;}
+  </style>
+  <title> </title>
+  <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <table style = "background-color: blue;">
+    <tr>
+      <td>
+	<img src = "../images/tfllogo.jpg">
+      </td>
+      <td>
+	{{name}}
+      </td>
+      <td>
+	<img src = "../images/underground.png">
+      </td>
+    </tr>
+  </table>
+
 <table>
   <tr>
     <th>
-<svg xmlns="http://www.w3.org/2000/svg" id="map" height="900px" width="1700px" style="border-style: solid; background-color: lightgrey;">
-</svg>
-<span id="test"></span>
-</th>
-  <th><center>
+      <svg xmlns="http://www.w3.org/2000/svg" id="map" height="900px" width="1700px" style="border-style: solid; background-color: lightgrey;">
+      </svg>
+      <span id="test"></span>
+    </th>
+    <th><center>
 
-    <table>
-
-      <tr>
-    Station Information: Bakerloo - Kensal Green Stop</tr>
-
-      <tr><th>Train #</th>
-        <th> Train coming in </th></tr>
-
-      <tr><th>Train 3</th>
-        <th> 23 min </th></tr>
-
-      <tr><th>Train 5</th>
-        <th> 33 min </th></tr>
-
-    </table></center>
-
-
-  </th>
-</tr>
+	<table>
+	  
+	  <tr>
+	    Station Information: Bakerloo - Kensal Green Stop</tr>
+	  
+	  <tr><th>Train #</th>
+            <th> Train coming in </th></tr>
+	  
+	  <tr><th>Train 3</th>
+            <th> 23 min </th></tr>
+	  
+	  <tr><th>Train 5</th>
+            <th> 33 min </th></tr>
+	  
+      </table></center>
+      
+      
+    </th>
+  </tr>
+  <tr>
+    <form action = "/map" method = "POST">
+    <td>
+      <Button type = "submit" name = "way" value = "Bakerloo"> Bakerloo</button>
+    </td>
+    <td>
+      <Button type = "submit" name = "way" value = "Hammersmith & City">Hammersmith & City</button>
+    </td>
+    <td>
+      <Button type = "submit" name = "way" value = "Victoria">Victoria</button>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <Button type = "submit" name = "way" value = "Central">Central</button>
+    </td>
+    <td>
+      <Button type = "submit" name = "way" value = "Jubilee">Jubilee</button>
+    </td>
+    <td>
+      <Button type = "submit" name = "way" value = "See Whole Map">See Whole Map</button>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <Button type = "submit" name = "way" value = "Circle">Circle</button>
+    </td>
+    <td>
+      <Button type = "submit" name = "way" value = "Northern">Northern</button>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <Button type = "submit" name = "way" value = "District">District</button>
+    </td>
+    <td>
+      <Button type = "submit" name = "way" value = "Piccadilly">Piccadilly</button>
+    </td>
+    <td>
+      <input type="radio" name = "bound" value = "in" checked> Inbound <br>
+      <input type="radio" name = "bound" value = "out"> Outbound <br>
+    </td>
+  </tr>
 
 </table>
 
-{% endblock %}
 
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='map.js') }}" type="text/javascript"></script>
 {% endblock %}
+
+</body>
+</html>
