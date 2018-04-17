@@ -10,6 +10,7 @@
      src="https://code.jquery.com/jquery-3.3.1.min.js"
      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
      crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 
 </head>
 
@@ -31,7 +32,7 @@
   <table>
     <tr>
       <th>
-	<svg xmlns="http://www.w3.org/2000/svg" id="map" height="900px" width="1700px" style="border-style: solid; background-color: lightgrey;">
+	<svg xmlns="http://www.w3.org/2000/svg" id="map" height="600px" width="1000px" style="border-style: solid; background-color: lightgrey;">
 	</svg>
 	<span id="test"></span>
       </th>
@@ -122,7 +123,6 @@
 
   {% block scripts %}
   <script src="{{ url_for('static', filename='map.js') }}" type="text/javascript"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
   {% endblock %}
 
 </body>
