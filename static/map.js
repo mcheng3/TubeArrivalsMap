@@ -20,7 +20,7 @@ function getCoords(){
 
 function drawAll(lines){
 	for(var line in lines){
-		if(line == "metropolitan") draw(lines, line, true);
+		if(line == "metropolitan") draw(lines, line, false);
 		else draw(lines, line, false);
 	}
 }
@@ -86,7 +86,7 @@ function draw(lines, line, displayNames){
 	    });
 	
 	}
-    stops.attr("r", 3).attr("stroke","black").attr("stroke-width","1.5").attr("fill","white");
+    stops.attr("r", 3).attr("stroke","black").attr("stroke-width","1").attr("fill","white");
 	stops.classed(line, true)
 	
 };
