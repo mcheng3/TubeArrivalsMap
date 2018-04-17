@@ -16,7 +16,7 @@ def root_route():
     return render_template("map.html", name ="See Whole Map")
 
 
-@app.route('/map' method = ['POST', 'GET'])
+@app.route('/map', methods = ['POST', 'GET'])
 def map():
     bounds = request.form['bound']
     return render_template("map.html", name = request.form['way'])
@@ -59,8 +59,10 @@ def coords():
 def times():
     u = requests.get("https://api.tfl.gov.uk/Mode/tube/Arrivals", data={"app_id":app_id, "app_key":app_key})
     data_string = u.json()
-    dic = json.dumps(data_string)
-    return dic
+    'dic = json.load(data_string)'
+    print u
+
+
 
 
 if __name__ == "__main__":
