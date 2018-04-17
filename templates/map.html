@@ -38,22 +38,22 @@
     <th><center>
 
 	<table>
-	  
+
 	  <tr>
 	    Station Information: Bakerloo - Kensal Green Stop</tr>
-	  
+
 	  <tr><th>Train #</th>
             <th> Train coming in </th></tr>
-	  
+
 	  <tr><th>Train 3</th>
             <th> 23 min </th></tr>
-	  
+
 	  <tr><th>Train 5</th>
             <th> 33 min </th></tr>
-	  
+
       </table></center>
-      
-      
+
+
     </th>
   </tr>
   <tr>
@@ -68,7 +68,7 @@
       <Button type = "submit" name = "way" value = "Victoria">Victoria</button>
     </td>
   </tr>
-  
+
   <tr>
     <td>
       <Button type = "submit" name = "way" value = "Central">Central</button>
@@ -80,7 +80,7 @@
       <Button type = "submit" name = "way" value = "See Whole Map">See Whole Map</button>
     </td>
   </tr>
-  
+
   <tr>
     <td>
       <Button type = "submit" name = "way" value = "Circle">Circle</button>
@@ -89,10 +89,10 @@
       <Button type = "submit" name = "way" value = "Northern">Northern</button>
     </td>
     <td>
-      
+
     </td>
   </tr>
-  
+
   <tr>
     <td>
       <Button type = "submit" name = "way" value = "District">District</button>
@@ -112,6 +112,7 @@
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='map.js') }}" type="text/javascript"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
 {% endblock %}
 
 </body>
