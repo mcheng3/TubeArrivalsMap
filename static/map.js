@@ -24,6 +24,16 @@ function drawAll(lines){
 		else draw(lines, line, false);
 	}
 }
+
+function color(seconds){
+    if(seconds >= 255){
+	return "#ffffff";
+    }
+    else{
+	return "#ff" + seconds.toString(16) + seconds.toString(16);
+    }
+}
+
 function draw(lines, line, displayNames){
 	//console.log(lines[line]['stops']);
 	//console.log('line');
