@@ -54,10 +54,10 @@ function gradient(){
 	.attr("stop-opacity", 1);
     var rect = svg.append("rect")
 	.attr("x", 745)
-	.attr("y", 50)
+	.attr("y", 550)
 	.attr("height", 50)
 	.attr("width", 255)
-	.attr("fill", "red");
+	.attr("fill", "url(#svgGradient)");
 }
 
 function draw(lines, line, displayNames){
