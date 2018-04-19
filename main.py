@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def root_route():
-    return render_template("map.html", name ="See Whole Map")
+    return render_template("map.html", name="all")
 
 
 @app.route('/map', methods = ['POST', 'GET'])
