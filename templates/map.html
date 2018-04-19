@@ -3,7 +3,24 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
   <style>
-    body {font-family: 'Hammersmith One', sans-serif;}
+    body {font-family: 'Hammersmith One', sans-serif; margin-top:130px;}
+    	ul{
+	position:fixed;
+	top: 0;
+	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #CAE9FF;
+	}
+	p{
+	float: left;
+	color: white;
+	text-align: center;
+	padding: 0px 30px;
+	text-decoration: none;
+	}
   </style>
   <title> </title>
   <script
@@ -17,18 +34,11 @@
 </head>
 
 <body>
-  <table style = "background-color: blue;">
-    <tr>
-      <td>
-	<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Transport_for_London_logo_%282013%29.svg/2000px-Transport_for_London_logo_%282013%29.svg.png" width="50%" height="50%">
-      </td>
-      <td>
-      </td>
-      <td>
-	<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Underground.svg/150px-Underground.svg.png" width="50%" height="50%">
-      </td>
-    </tr>
-  </table>
+	<ul>
+		<p>	<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Transport_for_London_logo_%282013%29.svg/2000px-Transport_for_London_logo_%282013%29.svg.png" height="75"></p>
+		<p style="font-size:220%"> {{name}} </p>
+		<p style="float:right"> <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Underground.svg/150px-Underground.svg.png" height="75"> </p>
+	</ul>
 
   <table>
     <tr>
