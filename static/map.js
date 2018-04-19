@@ -58,7 +58,7 @@ function gradient(){
 	.attr("x1", "0%")
 	.attr("x2", "100%")
 	.attr("y1", "0%")
-	.attr("y2", "100%");
+	.attr("y2", "0%");
     gradient.append("stop")
 	.attr('class', 'start')
 	.attr("offset", "0%")
