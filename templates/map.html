@@ -20,13 +20,12 @@
   <table style = "background-color: blue;">
     <tr>
       <td>
-	<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Transport_for_London_logo_%282013%29.svg/2000px-Transport_for_London_logo_%282013%29.svg.png">
+	<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Transport_for_London_logo_%282013%29.svg/2000px-Transport_for_London_logo_%282013%29.svg.png" width="50%" height="50%">
       </td>
       <td>
-	{{name}}
       </td>
       <td>
-	<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Underground.svg/150px-Underground.svg.png">
+	<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Underground.svg/150px-Underground.svg.png" width="50%" height="50%">
       </td>
     </tr>
   </table>
@@ -64,52 +63,53 @@
 	<td>
 	  <input type="radio" name = "bound" value = "in" checked> Inbound <br>
 	  <input type="radio" name = "bound" value = "out"> Outbound <br>
+	  <input type="hidden" value={{name}} id="lineName"></td>
 	</td>
       </tr>
       <tr>
 	<table>
 	  <tr>
 	    <td>
-	      <Button type = "submit" name = "way" value = "Bakerloo"> Bakerloo</button>
+	      <Button type = "submit" name = "way" value = "bakerloo"> Bakerloo</button>
 	    </td>
 	    <td>
-	      <Button type = "submit" name = "way" value = "Hammersmith & City">Hammersmith & City</button>
+	      <Button type = "submit" name = "way" value = "hammersmith-city">Hammersmith & City</button>
 	    </td>
 	    <td>
-	      <Button type = "submit" name = "way" value = "Victoria">Victoria</button>
+	      <Button type = "submit" name = "way" value = "victoria">Victoria</button>
 	    </td>
 	  </tr>
 	  
 	  <tr>
 	    <td>
-	      <Button type = "submit" name = "way" value = "Central">Central</button>
+	      <Button type = "submit" name = "way" value = "central">Central</button>
 	    </td>
 	    <td>
-	      <Button type = "submit" name = "way" value = "Jubilee">Jubilee</button>
+	      <Button type = "submit" name = "way" value = "jubilee">Jubilee</button>
 	    </td>
 	    <td>
-	      <Button type = "submit" name = "way" value = "See Whole Map">See Whole Map</button>
-	    </td>
-	  </tr>
-
-	  <tr>
-	    <td>
-	      <Button type = "submit" name = "way" value = "Circle">Circle</button>
-	    </td>
-	    <td>
-	      <Button type = "submit" name = "way" value = "Northern">Northern</button>
-	    </td>
-	    <td>
-
+	      <Button type = "submit" name = "way" value = "all">See Whole Map</button>
 	    </td>
 	  </tr>
 
 	  <tr>
 	    <td>
-	      <Button type = "submit" name = "way" value = "District">District</button>
+	      <Button type = "submit" name = "way" value = "circle">Circle</button>
 	    </td>
 	    <td>
-	      <Button type = "submit" name = "way" value = "Piccadilly">Piccadilly</button>
+	      <Button type = "submit" name = "way" value = "northern">Northern</button>
+	    </td>
+	    <td>
+
+	    </td>
+	  </tr>
+
+	  <tr>
+	    <td>
+	      <Button type = "submit" name = "way" value = "district">District</button>
+	    </td>
+	    <td>
+	      <Button type = "submit" name = "way" value = "piccadilly">Piccadilly</button>
 	    </td>
 	    <td>
 	    </td>

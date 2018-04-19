@@ -1,4 +1,3 @@
-
 var svg = d3.select("svg");
 var colors = {"bakerloo": '#B36305', 'central':'#e32017', 'circle':'#ffd300','hammersmith-city':'#f3a9bb','jubilee':'#a0a5a9','district':'#00782a',
               'metropolitan':'#9b0056',
@@ -20,10 +19,14 @@ function getCoords(){
 };
 
 function drawAll(lines){
-    for(var line in lines){
-        if(line == "circle") draw(lines, line, true);
-        //else draw(lines, line, false);
+    var lineName = (d3.select("#lineName").attr("value"));
+    console.log(lineName);
+    if(lineName == "all"){
+        for(var line in lines){
+            draw(lines, line, false);
+        }
     }
+    else draw(lines, lineName, true);
 }
 
 function color(seconds){
@@ -107,11 +110,11 @@ function draw(lines, line, displayNames){
         //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
         return Math.floor((d['lon'] + .65) * 1100);
     });
+            var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
     if(displayNames){
-        var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
         names.attr("y", function(d){
             //console.log(d['lat'] * 3000 - 51.4 * 3000);
-            return parseInt(svg.attr("height")) - Math.floor((d['lat'] - 51.395) * 1900) - 2;
+            return parseInt(svg.attr("height")) - Math.floor((d['lat'] - 51.395) * 1900) + 1;
         });
         names.attr("x", function(d){
             //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
@@ -130,7 +133,7 @@ function draw(lines, line, displayNames){
     
     
     svg.attr("width",svg.attr("width")).attr("length",svg.attr("length")).style("fill", "none").style("pointer-events", "all").call(d3.zoom()
-                     .scaleExtent([1, 4])
+                     .scaleExtent([1, 10])
                      //.translateExtent([[0, 0], [svg.attr("width"), svg.attr("length")]])
                      .on("zoom", function(){
                          container.attr("transform", d3.event.transform);
