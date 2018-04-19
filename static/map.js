@@ -28,11 +28,37 @@ function drawAll(lines){
 
 function color(seconds){
     if(seconds >= 255){
-    return "#ffffff";
+	return "#ffffff";
     }
     else{
-    return "#ff" + seconds.toString(16) + seconds.toString(16);
+	return "#ff" + seconds.toString(16) + seconds.toString(16);
     }
+}
+
+function gradient(){
+    var svg = d3.select("svg");
+    var gradient = svg.append("linearGradient")
+	.attr("id", "svgGradient")
+	.attr("x1", "0%")
+	.attr("x2", "100%")
+	.attr("y1", "0%")
+	.attr("y2", "100%");
+    gradient.append("stop")
+	.attr('class', 'start')
+	.attr("offset", "0%")
+	.attr("stop-color", "white")
+	.attr("stop-opacity", 1);
+    gradient.append("stop")
+	.attr('class', 'start')
+	.attr("offset", "100%")
+	.attr("stop-color", "red")
+	.attr("stop-opacity", 1);
+    var rect = svg.append("rect")
+	.attr("x", 745)
+	.attr("y", 550)
+	.attr("height", 50)
+	.attr("width", 255)
+	.attr("fill", "url(#svgGradient)");
 }
 
 function draw(lines, line, displayNames){
@@ -109,3 +135,4 @@ function draw(lines, line, displayNames){
 };
 
 getCoords()
+gradient()
