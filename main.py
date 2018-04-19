@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for, flash,request
+from flask import Flask, render_template, session, redirect, url_for, flash,request, jsonify
 import random
 import os
 import requests
@@ -59,9 +59,9 @@ def coords():
 def times():
     u = requests.get("https://api.tfl.gov.uk/Mode/tube/Arrivals", data={"app_id":app_id, "app_key":app_key})
     data_string = u.json()
-    'dic = json.load(data_string)'
-    print u
-
+    d = data_string
+    print d
+    return jsonify(d)
 
 
 
