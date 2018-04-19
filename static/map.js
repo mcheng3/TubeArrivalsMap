@@ -119,6 +119,10 @@ function draw(lines, line, displayNames){
         //console.log(d['lat'] * 3000 - 51.4 * 3000);
         return parseInt(svg.attr("height")) - Math.floor((d['lat'] - 51.395) * 1900);
     });
+    stops.attr("id", function(d){
+      console.log(d)
+      return d['id']
+    })
     stops.attr("cx", function(d){
         //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
         return Math.floor((d['lon'] + .65) * 1100);
