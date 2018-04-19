@@ -62,7 +62,12 @@ function gradient(){
     gradient.append("stop")
 	.attr('class', 'start')
 	.attr("offset", "0%")
-	.attr("stop-color", "white")
+	.attr("stop-color", "cyan")
+	.attr("stop-opacity", 1);
+    gradient.append("stop")
+	.attr('class', 'start')
+	.attr("offset", "50%")
+	.attr("stop-color", "yellow")
 	.attr("stop-opacity", 1);
     gradient.append("stop")
 	.attr('class', 'start')
@@ -75,6 +80,12 @@ function gradient(){
 	.attr("height", 50)
 	.attr("width", 255)
 	.attr("fill", "url(#svgGradient)");
+    var text = svg.append("text")
+	.attr("x", 745)
+	.attr("y", 550)
+	.text(">=255       0")
+	.attr("font-size",50)
+	.attr("font-family", "sans-serif");
 }
 
 function draw(lines, line, displayNames){
