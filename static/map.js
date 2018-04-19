@@ -18,6 +18,19 @@ function getCoords(){
     });
 };
 
+function getTimes(){
+  $.ajax({
+    url: '/times',
+    type: 'GET',
+    success: function(d){
+      console.log(JSON.parse(d));
+    }
+  })
+}
+
+
+
+
 function drawAll(lines){
     var lineName = (d3.select("#lineName").attr("value"));
     console.log(lineName);
@@ -82,7 +95,7 @@ function draw(lines, line, displayNames){
     lines.attr("y1",function(d){
        return 1100-Math.floor(d[0]/100);
     });***/
- 
+
     lineCoords = lines[line]["lines"];
     var path = "";
     for(var i = 0; i < lineCoords.length; i++){
@@ -126,12 +139,12 @@ function draw(lines, line, displayNames){
             if(d['name'].indexOf('Underground', 0) != -1) return d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
             else return d['name']
         });
-    
+
     }
     stops.attr("r", 3).attr("stroke","black").attr("stroke-width","1").attr("fill","white");
     stops.classed(line, true)
-    
-    
+
+
     svg.attr("width",svg.attr("width")).attr("length",svg.attr("length")).style("fill", "none").style("pointer-events", "all").call(d3.zoom()
                      .scaleExtent([1, 10])
                      //.translateExtent([[0, 0], [svg.attr("width"), svg.attr("length")]])
