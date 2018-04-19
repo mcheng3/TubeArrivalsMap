@@ -6,11 +6,13 @@
     body {font-family: 'Hammersmith One', sans-serif;}
   </style>
   <title> </title>
-  <script
+  <!--<script
      src="https://code.jquery.com/jquery-3.3.1.min.js"
      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-     crossorigin="anonymous"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+     crossorigin="anonymous"></script>-->
+  <!--<script src="https://d3js.org/d3.v5.min.js"></script>!-->
+  <script src="{{ url_for('static', filename='d3.v5.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
 
 </head>
 

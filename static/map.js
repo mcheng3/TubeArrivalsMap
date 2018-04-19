@@ -21,8 +21,8 @@ function getCoords(){
 
 function drawAll(lines){
     for(var line in lines){
-        if(line == "metropolitan") draw(lines, line, false);
-        else draw(lines, line, false);
+        if(line == "circle") draw(lines, line, true);
+        //else draw(lines, line, false);
     }
 }
 
@@ -111,15 +111,17 @@ function draw(lines, line, displayNames){
         var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
         names.attr("y", function(d){
             //console.log(d['lat'] * 3000 - 51.4 * 3000);
-            return parseInt(svg.attr("height")) - Math.floor((d['lat'] - 51.395) * 1900) - 6;
+            return parseInt(svg.attr("height")) - Math.floor((d['lat'] - 51.395) * 1900) - 2;
         });
         names.attr("x", function(d){
             //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
-            return Math.floor((d['lon'] + .65) * 1100)+10;
+            return Math.floor((d['lon'] + .65) * 1100)+5;
         });
-    names.attr("stroke","black");
+    names.attr("fill","black").attr("font-size", 5);
         names.text(function(d){
-            return d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
+            console.log()
+            if(d['name'].indexOf('Underground', 0) != -1) return d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
+            else return d['name']
         });
     
     }
@@ -127,11 +129,12 @@ function draw(lines, line, displayNames){
     stops.classed(line, true)
     
     
-    d3.select("body").attr("width",svg.attr("width")).attr("length",svg.attr("length")).style("fill", "none").style("pointer-events", "all").call(d3.zoom()
-                     .scaleExtent([1, 3])
+    svg.attr("width",svg.attr("width")).attr("length",svg.attr("length")).style("fill", "none").style("pointer-events", "all").call(d3.zoom()
+                     .scaleExtent([1, 4])
+                     //.translateExtent([[0, 0], [svg.attr("width"), svg.attr("length")]])
                      .on("zoom", function(){
                          container.attr("transform", d3.event.transform);
-                     })).append("g");
+                     }))
 };
 
 getCoords()
