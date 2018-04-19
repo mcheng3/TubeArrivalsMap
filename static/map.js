@@ -35,10 +35,13 @@ function getTimes(){
 function drawAll(lines){
     var lineName = (d3.select("#lineName").attr("value"));
     if(d3.select("#title").html() != "All") d3.select("#title").html(lines[lineName]["name"]);
+    if( lineName == "circle" || lineName == "hammersmith-city" || lineName == "waterloo-city"){
+        d3.select("#title").style("color", "black");
+    }
     if( lineName != "piccadilly" && lineName != "All") d3.select("ul").style("background-color", colors[lineName]);
     else{
         d3.select("#title").style("color", colors[lineName]);
-        d3.select("ul").style("background-color", "white");
+        d3.select("ul").style("background-color", "#e0ebff");
     } 
     console.log(lineName);
     if(lineName == "All"){
