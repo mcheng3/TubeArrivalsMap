@@ -56,7 +56,7 @@ function gradient(){
 	.attr("x", 745)
 	.attr("y", 50)
 	.attr("height", 50)
-	.attr("length", 255)
+	.attr("width", 255)
 	.attr("fill", "red");
 }
 
