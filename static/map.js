@@ -4,7 +4,8 @@ var colors = {"bakerloo": '#B36305', 'central':'#e32017', 'circle':'#ffd300','ha
               'northern':'#000000',
               'piccadilly':'#003688',
               'victoria': '#0098d4',
-          'waterloo-city': '95cdba'};
+          'waterloo-city': '#95cdba',
+          'All' : 'black'};
 var container = svg.append("g");
 
 function getCoords(){
@@ -33,8 +34,14 @@ function getTimes(){
 
 function drawAll(lines){
     var lineName = (d3.select("#lineName").attr("value"));
+    if(d3.select("#title").html() != "All") d3.select("#title").html(lines[lineName]["name"]);
+    if( lineName != "piccadilly" && lineName != "All") d3.select("ul").style("background-color", colors[lineName]);
+    else{
+        d3.select("#title").style("color", colors[lineName]);
+        d3.select("ul").style("background-color", "white");
+    } 
     console.log(lineName);
-    if(lineName == "all"){
+    if(lineName == "All"){
         for(var line in lines){
             draw(lines, line, false);
         }
