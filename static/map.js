@@ -60,12 +60,13 @@ function color(seconds){
 	return "#ff" + seconds.toString(16) + seconds.toString(16);
     }
 }
-var interpolator = d3.interpolateRgbBasis(["#cc2f0c", "#1c770a", "#064482", "#4c0149"]);
+
+var interpolator = d3.interpolateMagma;
 
 function interpolateCustomKey(g){
         //console.log(interpolator(g/200.0));
-        if(g < 190) return interpolator(Math.log(g/4+1)/Math.log(50));
-        else return interpolator(1.0);
+        if(g < 190) return interpolator(1-g/200.0);
+        else return interpolator(0.0);
 };
 
 function interpolateCustom(second){
@@ -90,12 +91,19 @@ function makeKey(){
 	   .attr("stroke-width", "2px")
 	   .attr("stroke", interpolateCustomKey);
 	svg.append("text")
-	   .attr("x", 730)
+	   .attr("x", 735)
 	   .attr("y", 530)
 	   .attr("fill","black").attr("font-size", 20)
 	   .text("0");
     svg.append("text")
-       .attr("x", 915)
+       .attr("text-anchor", "middle")
+       .attr("x", 830)
+       .attr("y", 530)
+       .attr("fill","black").attr("font-size", 20)
+       .text("30");
+    svg.append("text")
+        .attr("text-anchor", "middle")
+       .attr("x", 925)
        .attr("y", 530)
        .attr("fill","black").attr("font-size", 20)
        .text("60");
@@ -219,7 +227,7 @@ function draw(lines, line, displayNames){
                      .on("zoom", function(){
                          container.attr("transform", d3.event.transform);
                      }))
-    var seconds = 10
+    var seconds = 30;
     stops.transition().duration(seconds * 1000).attrTween("fill", function(){return interpolateCustom(seconds)});
 
     
