@@ -18,8 +18,8 @@ def root_route():
 
 @app.route('/map', methods = ['POST', 'GET'])
 def map():
-    bounds = request.form['bound']
-    return render_template("map.html", name = request.form['way'])
+    bounds = request.args['bound']
+    return render_template("map.html", name = request.args['way'])
 
 @app.route('/test')
 def test():
