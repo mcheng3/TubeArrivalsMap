@@ -61,12 +61,12 @@ function color(seconds){
     }
 }
 
-var interpolator = d3.interpolateViridis;
+var interpolator = d3.interpolateMagma;
 
 function interpolateCustomKey(g){
         //console.log(interpolator(g/200.0));
-        if(g < 190) return interpolator(g/200.0);
-        else return interpolator(1.0);
+        if(g < 190) return interpolator(1-g/200.0);
+        else return interpolator(0.0);
 };
 
 function interpolateCustom(second){
