@@ -4,22 +4,50 @@
   <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
   <style>
     body {font-family: 'Hammersmith One', sans-serif; margin-top:130px;}
-    	ul{
-	position:fixed;
+    
+    ul{
+        position:fixed;
 	top: 0;
 	width: 100%;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	}
-	p{
+    }
+    p{
 	float: left;
 	color: white;
 	text-align: center;
 	padding: 0px 30px;
 	text-decoration: none;
-	}
+    }
+
+    .button{
+        display: inline-block;
+        border-radius: 10px;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 20px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5;
+        cursor: pointer;
+    }
+
+    .button1{background-color: #B36305}
+    .button2{background-color: #e32017}
+    .button3{background-color: #ffd300}
+    .button4{background-color: #f3a9bb}
+    .button5{background-color: #a0a5a9}
+    .button6{background-color: #00782a}
+    .button7{background-color: #9b0056}
+    .button8{background-color: #000000}
+    .button9{background-color: #003688}
+    .button10{background-color: #0098d4}
+    .button11{background-color: 'black'}
+    
+    
   </style>
   <title> </title>
   <!--<script
@@ -79,7 +107,7 @@
 	<table>
 	  <tr>
 	    <td>
-	      <Button type = "submit" name = "way" value = "bakerloo"> Bakerloo</button>
+	      <Button class="button button1" type = "submit" name = "way" value = "bakerloo"> Bakerloo</button>
 	    </td>
 	    <td>
 	      <Button type = "submit" name = "way" value = "hammersmith-city">Hammersmith & City</button>
