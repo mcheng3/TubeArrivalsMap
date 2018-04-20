@@ -61,17 +61,17 @@ function color(seconds){
     }
 }
 
-var interpolator = d3.interpolateMagma;
+var interpolator = d3.interpolateViridis;
 
 function interpolateCustomKey(g){
         //console.log(interpolator(g/200.0));
-        if(g < 190) return interpolator(1-g/200.0);
-        else return interpolator(0.0);
+        if(g < 190) return interpolator(g/200.0);
+        else return interpolator(1.0);
 };
 
 function interpolateCustom(second){
     return function(g){
-        return interpolateCustomKey((1 - g) * second/60*200);
+        return interpolateCustomKey((1- g) * second/60*200);
     }
 }
 
@@ -227,7 +227,7 @@ function draw(lines, line, displayNames){
                      .on("zoom", function(){
                          container.attr("transform", d3.event.transform);
                      }))
-    var seconds = 30;
+    var seconds = 60;
     stops.transition().duration(seconds * 1000).attrTween("fill", function(){return interpolateCustom(seconds)});
 
     
