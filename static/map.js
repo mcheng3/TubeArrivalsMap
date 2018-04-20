@@ -60,7 +60,7 @@ function color(seconds){
 	return "#ff" + seconds.toString(16) + seconds.toString(16);
     }
 }
-var interpolator = d3.interpolateBuPu;
+var interpolator = d3.interpolateYlGnBu;
 
 function makeKey(){
 	var xs = [];
@@ -87,10 +87,10 @@ function makeKey(){
 	   .attr("fill","black").attr("font-size", 20)
 	   .text("0");
     svg.append("text")
-       .attr("x", 905)
+       .attr("x", 915)
        .attr("y", 530)
        .attr("fill","black").attr("font-size", 20)
-       .text("500");
+       .text("60");
     svg.append("text")
        .attr("x", 975)
        .attr("y", 532)
