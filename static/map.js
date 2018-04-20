@@ -43,7 +43,7 @@ function drawAll(lines){
         d3.select("#title").style("color", colors[lineName]);
         d3.select("ul").style("background-color", "#e0ebff");
     } 
-    console.log(lineName);
+    //console.log(lineName);
     if(lineName == "All"){
         for(var line in lines){
             draw(lines, line, false);
@@ -59,6 +59,43 @@ function color(seconds){
     else{
 	return "#ff" + seconds.toString(16) + seconds.toString(16);
     }
+}
+var interpolator = d3.interpolateBuPu;
+
+function makeKey(){
+	var xs = [];
+	for(var i = 0; i <= 255; i++){
+		xs.push(i);
+	}
+	svg.selectAll('line')
+	   .data(xs)
+	   .enter()
+	   .append('line')
+	   .attr("x1", function(d){return 735+d;})
+	   .attr("x2", function(d){return 735+d;}) 
+	   .attr("y1", 540)
+	   .attr("y2", 590)
+	   .attr("stroke-width", "2px")
+	   .attr("stroke", function(d){
+	   	console.log(interpolator(d/200.0));
+	   	if(d < 195) return interpolator(d/200.0);
+        else return interpolator(1.0);
+	   });
+	svg.append("text")
+	   .attr("x", 730)
+	   .attr("y", 530)
+	   .attr("fill","black").attr("font-size", 20)
+	   .text("0");
+    svg.append("text")
+       .attr("x", 905)
+       .attr("y", 530)
+       .attr("fill","black").attr("font-size", 20)
+       .text("500");
+    svg.append("text")
+       .attr("x", 975)
+       .attr("y", 532)
+       .attr("fill","black").attr("font-size", 30)
+       .text("∞");
 }
 
 function gradient(){
@@ -122,14 +159,14 @@ function draw(lines, line, displayNames){
     for(var i = 0; i < lineCoords.length; i++){
         //console.log(lineCoords[i]);
         l = JSON.parse(lineCoords[i])[0];
-        console.log(l[0][1]);
+        //console.log(l[0][1]);
         path = path + "M " + Math.floor((l[0][0] + .65) * 1100).toString() + " " + (parseInt(svg.attr("height")) - Math.floor((l[0][1] - 51.395) * 1900)).toString() + " ";
         for(var j = 1; j < l.length; j++){
             path = path + "L " + Math.floor((l[j][0] + .65) * 1100).toString() + " " + (parseInt(svg.attr("height")) - Math.floor((l[j][1] -51.395) * 1900)).toString() + " "
         }
         //console.log(path);
     }
-    console.log(path);
+    //console.log(path);
     //console.log(path_coords);
     var paths = container.append("path");
     paths.attr("d", path);
@@ -141,7 +178,7 @@ function draw(lines, line, displayNames){
         return parseInt(svg.attr("height")) - Math.floor((d['lat'] - 51.395) * 1900);
     });
     stops.attr("id", function(d){
-      console.log(d)
+      //console.log(d)
       return d['id']
     })
     stops.attr("cx", function(d){
@@ -160,7 +197,7 @@ function draw(lines, line, displayNames){
         });
     names.attr("fill","black").attr("font-size", 5);
         names.text(function(d){
-            console.log()
+            //console.log()
             if(d['name'].indexOf('Underground', 0) != -1) return d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
             else return d['name']
         });
@@ -179,4 +216,5 @@ function draw(lines, line, displayNames){
 };
 
 getCoords()
-gradient()
+//gradient()
+makeKey();
