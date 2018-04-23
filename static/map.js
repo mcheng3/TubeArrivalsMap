@@ -180,7 +180,7 @@ function draw(lines, line, times, displayNames){
             //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
             return Math.floor((d['lon'] + .65) * 1100 - 1);
         });
-    names.attr("fill","black").attr("font-size", 5).attr("stroke","lightgrey").attr("stroke-width", "0.1");
+    names.attr("fill","black").attr("font-size", 12).attr("stroke","lightgrey").attr("stroke-width", "0.05");
         names.text(function(d){
             //console.log()
             if(d['name'].indexOf('Underground', 0) != -1) return "\xa0\xa0\xa0\xa0\xa0" + d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
@@ -194,7 +194,16 @@ function draw(lines, line, times, displayNames){
                      .scaleExtent([1, 10])
                      //.translateExtent([[0, 0], [svg.attr("width"), svg.attr("length")]])
                      .on("zoom", function(){
+                         console.log(d3.event.transform)
+                         names.attr("font-size", function(){
+                            //console.log((d3.event.scale))
+                            return 12/(d3.event.transform["k"] ) + "px";
+                        }).attr("x",function(d){
+            //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
+            return Math.floor((d['lon'] + .65) * 1100 +3);
+        });
                          container.attr("transform", d3.event.transform);
+                        
                      }))
     //stops.attr("onmouseover","evt.target.setAttribute('r', '20');");
     stops.transition().duration(function(d){return times[d['id']] * 1000}).ease(d3.easeLinear)
