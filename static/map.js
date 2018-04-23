@@ -24,12 +24,20 @@ function getTimes(){
     url: '/times',
     type: 'GET',
     success: function(d){
-      console.log(JSON.parse(d));
+      console.log(d);
+      setTimes(d);
     }
   })
 }
 
-
+function setTimes(d){
+  console.log(d);
+  console.log(d[0]["id"]);
+  for(i = 0; i < d.length; i++){
+    console.log(d[i]["id"]);
+    console.log(d[i]["timeToStation"])
+  };
+}
 
 
 function drawAll(lines){
@@ -42,7 +50,7 @@ function drawAll(lines){
     else{
         d3.select("#title").style("color", colors[lineName]);
         d3.select("ul").style("background-color", "#e0ebff");
-    } 
+    }
     //console.log(lineName);
     if(lineName == "All"){
         for(var line in lines){
@@ -85,7 +93,7 @@ function makeKey(){
 	   .enter()
 	   .append('line')
 	   .attr("x1", function(d){return 735+d;})
-	   .attr("x2", function(d){return 735+d;}) 
+	   .attr("x2", function(d){return 735+d;})
 	   .attr("y1", 540)
 	   .attr("y2", 590)
 	   .attr("stroke-width", "2px")
@@ -230,9 +238,10 @@ function draw(lines, line, displayNames){
     var seconds = 60;
     stops.transition().duration(seconds * 1000).attrTween("fill", function(){return interpolateCustom(seconds)});
 
-    
+
 };
 
 getCoords()
+getTimes()
 //gradient()
 makeKey();
