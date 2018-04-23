@@ -39,12 +39,44 @@ michaelC ishtiaqueM 2018--04-12 2:45 PM
 michaelC 2018--04-12 18:10
 -Updated the data, and put it into static/stops.json. Sample data can be displayed at /coords
 
-michaelC 2018--04-12 18:10
--Update map.js and map.html. Now displays map (beta version).
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+michaelC 2018--04-13 18:10
+-Update map.js and map.html. Now displays map (beta version).
+
 phillipP 2018--04--13 01:20
 - Added css and bootstrap
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 michaelC 2018--04-17 17:37
 -Created missing branches on the map. Reformatted data.
 
+ishtiaqueM kerryC phillipP 2018--04-17
+-finished reformatting html. instead of having multiple pages,
+we now have a single page that take advantage of jinja and js.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ishtiaqueM kerryC michealC phillipP 2018--04-19 2:45 PM
+- fixed up bugs and polished site
+
+michaelC 2018--04-19 2:40 PM
+- addded zoom and pan feature to svg
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+phillipP kerryC 2018--04-20 2:33 PM
+-Edits to html and css
+  -made it so that inbound and outbound trains could be selected
+  -changed all request to GET instead of POST for easy access
+
+michaelC ishtiaqueM 2018--04-20 3:12 PM
+-Imported ad tested different svg gradients
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+phillipP 2018--04-22 7:00 PM
+-Pushed CSS
+
+ishtiaqueM 2018--04-22 8:33 PM
+-Retrieved time in seconds and id from API
+-Hover function over bubbles to that visibility improves
+
+michaelC 2018--04-23 12:43 AM
+-Added times in seconds to gradient function
+-Made text bigger to improve hover function
