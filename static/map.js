@@ -13,34 +13,35 @@ function getCoords(){
         url: '/coords',
         type: 'GET',
         success: function(d){
-            console.log(JSON.parse(d));
+            //console.log(JSON.parse(d));
             drawAll(JSON.parse(d));
         }
     });
 };
 
-function getTimes(){
+function getTimes(lines, line, displayNames, direction){
+    
+    //console.log(direction);
   $.ajax({
     url: '/times',
     type: 'GET',
+    data:{
+        "line": line,
+        "direction": direction
+    },
     success: function(d){
-      console.log(d);
-      setTimes(d);
+      //console.log(d);
+      draw(lines, line, JSON.parse(d), displayNames);
     }
   })
 }
 
-function setTimes(d){
-  console.log(d);
-  console.log(d[0]["id"]);
-  for(i = 0; i < d.length; i++){
-    console.log(d[i]["id"]);
-    console.log(d[i]["timeToStation"])
-  };
-}
-
 
 function drawAll(lines){
+    var direction = "outbound";
+    if(d3.select("#direction").attr("value") == "checked"){
+        direction = "inbound";
+    }
     var lineName = (d3.select("#lineName").attr("value"));
     if(d3.select("#title").html() != "All") d3.select("#title").html(lines[lineName]["name"]);
     if( lineName == "circle" || lineName == "hammersmith-city" || lineName == "waterloo-city"){
@@ -54,13 +55,13 @@ function drawAll(lines){
     //console.log(lineName);
     if(lineName == "All"){
         for(var line in lines){
-            draw(lines, line, false);
+            getTimes(lines, line, false, direction);
         }
     }
-    else draw(lines, lineName, true);
+    else getTimes(lines, lineName, true, direction);
 }
 
-var interpolator = d3.interpolateMagma;
+var interpolator = d3.interpolateCubehelixDefault;
 
 function interpolateCustomKey(g){
         //console.log(interpolator(g/200.0));
@@ -70,7 +71,7 @@ function interpolateCustomKey(g){
 
 function interpolateCustom(second){
     return function(g){
-        return interpolateCustomKey((1- g) * second/60*200);
+        return interpolateCustomKey((1- g) * second/240*200);
     }
 }
 
@@ -90,55 +91,42 @@ function makeKey(){
 	   .attr("stroke-width", "2px")
 	   .attr("stroke", interpolateCustomKey);
 	svg.append("text")
+       .attr("stroke","lightgrey").attr("stroke-width", "0.4")
 	   .attr("x", 735)
 	   .attr("y", 530)
 	   .attr("fill","black").attr("font-size", 20)
 	   .text("0");
     svg.append("text")
+       .attr("stroke","lightgrey").attr("stroke-width", "0.4")
        .attr("text-anchor", "middle")
        .attr("x", 830)
        .attr("y", 530)
        .attr("fill","black").attr("font-size", 20)
-       .text("30");
+       .text("2");
     svg.append("text")
-        .attr("text-anchor", "middle")
+       .attr("stroke","lightgrey").attr("stroke-width", "0.4")
+       .attr("text-anchor", "middle")
        .attr("x", 925)
        .attr("y", 530)
        .attr("fill","black").attr("font-size", 20)
-       .text("60");
+       .text("4");
     svg.append("text")
+       .attr("stroke","lightgrey").attr("stroke-width", "0.4")
        .attr("x", 975)
        .attr("y", 532)
        .attr("fill","black").attr("font-size", 30)
        .text("∞");
     svg.append("text")
+       .attr("stroke","lightgrey").attr("stroke-width", "0.4")
        .attr("text-anchor", "middle")
-       .attr("x", 850)
-       .attr("y", 515)
-       .attr("fill","black").attr("font-size", 20)
-       .text("Seconds to arrival");
+       .attr("x", 863)
+       .attr("y", 510)
+       .attr("fill","black").attr("font-size", 23)
+       .text("Minutes to arrival");
 
 }
 
-function draw(lines, line, displayNames){
-    //console.log(lines[line]['stops']);
-    //console.log('line');
-    /*var lines = map.selectAll("line").data(data[line]['stops']).enter().append("line");
-    var x1 = data[line]['stops'][0]['lat'];
-    var x2 = data[line]['stops'][0]['lon'];
-    lines.attr("x1",function(d){
-        x = x1;
-        x1 = d['lat'];
-        console.log(x);
-        lines.attr("x2", function(d){
-            return Math.floor(x1 * 1100 - 51400);
-        });
-       return Math.floor(x * 1100 - 51400);
-    });
-    lines.attr("y1",function(d){
-       return 1100-Math.floor(d[0]/100);
-    });***/
-
+function draw(lines, line, times, displayNames){
     lineCoords = lines[line]["lines"];
     var path = "";
     for(var i = 0; i < lineCoords.length; i++){
@@ -170,27 +158,25 @@ function draw(lines, line, displayNames){
         //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
         return Math.floor((d['lon'] + .65) * 1100);
     });
-    stops.transition().duration(seconds * 1000).ease(d3.easeLinear)
-         .attrTween("fill", function(d){
-              return interpolateCustom(seconds);
-         });
+    
             var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
 
     var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
     if(displayNames){
+        names.attr("id", "stopname");
         names.attr("y", function(d){
             //console.log(d['lat'] * 3000 - 51.4 * 3000);
-            return parseInt(svg.attr("height")) - Math.floor((d['lat'] - 51.395) * 1900) + 1;
+            return parseInt(svg.attr("height")) - Math.floor((d['lat'] - 51.395) * 1900) + 2;
         });
         names.attr("x", function(d){
             //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
-            return Math.floor((d['lon'] + .65) * 1100 - 2);
+            return Math.floor((d['lon'] + .65) * 1100 - 3);
         });
-    names.attr("fill","black").attr("font-size", 5).attr("stroke","lightgrey").attr("stroke-width", "0.2");
+    names.attr("fill","black").attr("font-size", 5).attr("stroke","lightgrey").attr("stroke-width", "0.1");
         names.text(function(d){
             //console.log()
-            if(d['name'].indexOf('Underground', 0) != -1) return "\xa0\xa0\xa0\xa0\xa0\xa0" + d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
-            else return "\xa0\xa0\xa0\xa0\xa0\xa0" + d['name']
+            if(d['name'].indexOf('Underground', 0) != -1) return "\xa0\xa0\xa0\xa0\xa0" + d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
+            else return "\xa0\xa0\xa0\xa0\xa0" + d['name']
         });
 
     }
@@ -203,8 +189,10 @@ function draw(lines, line, displayNames){
                          container.attr("transform", d3.event.transform);
                      }))
     //stops.attr("onmouseover","evt.target.setAttribute('r', '20');");
-    var seconds = 60;
-    //stops.transition().duration(seconds * 1000).ease(d3.easeLinear).attrTween("fill", function(){return interpolateCustom(seconds)});
+    stops.transition().duration(function(d){return times[d['id']] * 1000}).ease(d3.easeLinear)
+         .attrTween("fill", function(d){
+            return interpolateCustom(times[d['id']]);
+        });
 
 
 };

@@ -131,10 +131,10 @@ p{
 	background: white;
 }
 
-text{
+#stopname{
   opacity: 0;
 }
-text:hover{
+#stopname:hover{
   opacity: 1;
 }
 	</style>
@@ -168,11 +168,12 @@ text:hover{
       <tr>
 	<td><center>
 	  <label class="container">
-	  <input type="radio" name = "bound" value = "in" checked> Inbound
+	  <input type="hidden" id="direction" value={{inbound}}>
+	  <input type="radio" name = "bound" value = "in" id="in" {{inbound}}> Inbound
 	  <span class="checkmark"></span>
 	  </label>
 	  <label class="container">
-	  <input type="radio" name = "bound" value = "out"> Outbound
+	  <input type="radio" name = "bound" id="out" value = "out" {{outbound}}> Outbound
 	  <span class="checkmark"></span>
 	  </label>
 	  <br>

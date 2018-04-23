@@ -13,13 +13,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def root_route():
-    return render_template("map.html", name="All")
+    return render_template("map.html", name="All", inbound="checked")
 
 
 @app.route('/map', methods = ['POST', 'GET'])
 def map():
-    bounds = request.args['bound']
-    return render_template("map.html", name = request.args['way'])
+    inbound = ""
+    outbound = ""
+    if request.args['bound'] == "in":
+        inbound='checked'
+    else:
+        outbound='checked'
+    return render_template("map.html", name = request.args['way'], inbound=inbound, outbound=outbound)
 
 @app.route('/test')
 def test():
@@ -56,19 +61,21 @@ def coords():
     return stops
 
 @app.route('/times', methods = ['GET'])
-def times(line = 'N136'):
+def times():
+    line = request.args['line']
     u = requests.get("https://api.tfl.gov.uk/line/"+line+"/arrivals", 
         data={"app_id":app_id, "app_key":app_key, "count":"-1"})
     data_string = u.json()
     stops = {}
     for each in data_string:
-        if each['direction'] == request.args['direction']:
-            if each['naptanId'] in stops:
-                if each['timeToStation'] < stops[each['naptanId']]:
+        if 'direction' in each:
+            if each['direction'] == request.args['direction']:
+                if each['naptanId'] in stops:
+                    if each['timeToStation'] < stops[each['naptanId']]:
+                        stops[each['naptanId']] = each['timeToStation']
+                else:
                     stops[each['naptanId']] = each['timeToStation']
-            else:
-                stops[each['naptanId']] = each['timeToStation']
-    return jsonify(stops)
+    return json.dumps(stops)
 
 @app.route('/times2', methods = ['GET'])
 def times2():
