@@ -1,4 +1,11 @@
 var svg = d3.select("svg");
+svg.append("text").attr("id", "wait")
+       .attr("text-anchor", "middle")
+       .attr("stroke","lightgrey").attr("stroke-width", "0.4")
+       .attr("x", 520)
+       .attr("y", 310)
+       .attr("fill","black").attr("font-size", 50)
+       .text("Please Wait...");
 var colors = {"bakerloo": '#B36305', 'central':'#e32017', 'circle':'#ffd300','hammersmith-city':'#f3a9bb','jubilee':'#a0a5a9','district':'#00782a',
               'metropolitan':'#9b0056',
               'northern':'#000000',
@@ -127,6 +134,7 @@ function makeKey(){
 }
 
 function draw(lines, line, times, displayNames){
+    d3.select("#wait").text("");
     lineCoords = lines[line]["lines"];
     var path = "";
     for(var i = 0; i < lineCoords.length; i++){
