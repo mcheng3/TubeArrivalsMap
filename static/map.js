@@ -191,7 +191,7 @@ function draw(lines, line, times, displayNames){
     stops.attr("r", 3).attr("stroke","black");
     stops.classed(line, true);
     svg.attr("width",svg.attr("width")).attr("length",svg.attr("length")).style("fill", "none").style("pointer-events", "all").call(d3.zoom()
-                     .scaleExtent([1, 10])
+                     .scaleExtent([1, 13])
                      //.translateExtent([[0, 0], [svg.attr("width"), svg.attr("length")]])
                      .on("zoom", function(){
                          console.log(d3.event.transform)
