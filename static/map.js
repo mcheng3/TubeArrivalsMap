@@ -209,7 +209,7 @@ function draw(lines, line, displayNames){
         //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
         return Math.floor((d['lon'] + .65) * 1100);
     });
-            var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
+    var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
     if(displayNames){
         names.attr("y", function(d){
             //console.log(d['lat'] * 3000 - 51.4 * 3000);
@@ -235,6 +235,7 @@ function draw(lines, line, displayNames){
                      .on("zoom", function(){
                          container.attr("transform", d3.event.transform);
                      }))
+    //stops.attr("onmouseover","evt.target.setAttribute('r', '20');");
     var seconds = 60;
     stops.transition().duration(seconds * 1000).attrTween("fill", function(){return interpolateCustom(seconds)});
 
@@ -242,6 +243,6 @@ function draw(lines, line, displayNames){
 };
 
 getCoords()
-getTimes()
+//getTimes()
 //gradient()
 makeKey();
