@@ -177,17 +177,17 @@ function draw(lines, line, displayNames){
         });
         names.attr("x", function(d){
             //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
-            return Math.floor((d['lon'] + .65) * 1100)+5;
+            return Math.floor((d['lon'] + .65) * 1100 - 2);
         });
-    names.attr("fill","black").attr("font-size", 5);
+    names.attr("fill","black").attr("font-size", 5).attr("stroke","lightgrey").attr("stroke-width", "0.2");
         names.text(function(d){
             //console.log()
-            if(d['name'].indexOf('Underground', 0) != -1) return d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
-            else return d['name']
+            if(d['name'].indexOf('Underground', 0) != -1) return "\xa0\xa0\xa0\xa0\xa0\xa0" + d['name'].slice(0, d['name'].indexOf('Underground', 0))/* + " " + d['lon'].toString() + ", " + d['lat'].toString()*/;
+            else return "\xa0\xa0\xa0\xa0\xa0\xa0" + d['name']
         });
 
     }
-    stops.attr("r", 3).attr("stroke","black").attr("stroke-width","1").attr("fill","white");
+    stops.attr("r", 3).attr("stroke","black");
     stops.classed(line, true);
     svg.attr("width",svg.attr("width")).attr("length",svg.attr("length")).style("fill", "none").style("pointer-events", "all").call(d3.zoom()
                      .scaleExtent([1, 10])
