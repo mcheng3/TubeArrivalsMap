@@ -178,7 +178,7 @@ function draw(lines, line, times, displayNames){
         });
         names.attr("x", function(d){
             //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
-            return Math.floor((d['lon'] + .65) * 1100 - 3);
+            return Math.floor((d['lon'] + .65) * 1100 - 1);
         });
     names.attr("fill","black").attr("font-size", 5).attr("stroke","lightgrey").attr("stroke-width", "0.1");
         names.text(function(d){
