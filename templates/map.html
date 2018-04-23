@@ -4,7 +4,7 @@
   <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
 	<style>
 	body {font-family: 'Hammersmith One', sans-serif; margin-top:130px;}
-    
+
 ul{
 	position:fixed;
 	top: 0;
@@ -14,7 +14,7 @@ ul{
 	padding: 0;
 	overflow: hidden;
 }
-	
+
 p{
 	float: left;
 	color: white;
@@ -26,7 +26,7 @@ p{
 .center{
 		margin:auto;
 }
-	
+
 .tbuttons{
 		width: 50%;
 		height: 20px;
@@ -57,12 +57,12 @@ p{
 .button9{background-color: 'black'}
 .button10{background-color: #00782a}
 .button11{background-color: #003688}
-	
+
 .button span {
 	cursor: pointer;
 	display: inline-block;
 	transition: 0.5s;
-}	
+}
 
 .button span:after {
 	content: '\00bb';
@@ -78,7 +78,7 @@ p{
 	opacity: 1;
 	right: 0;
 }
-    
+
 .container {
     display: inline-block;
 	position: relative;
@@ -88,12 +88,12 @@ p{
 	cursor: pointer;
     font-size: 22px;
 }
-	
+
 .container input {
     opacity: 0;
     cursor: pointer;
 }
-	
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -103,25 +103,25 @@ p{
     background-color: #eee;
     border-radius: 50%;
 }
-	
+
 .container:hover input ~ .checkmark {
     background-color: #C0C0C0;
 }
-	
+
 .container input:checked ~ .checkmark {
     background-color: #1874CD;
 }
-	
+
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
-	
+
 .container input:checked ~ .checkmark:after {
     display: block;
 }
-	
+
 .container .checkmark:after {
  	top: 9px;
 	left: 9px;
@@ -156,26 +156,6 @@ p{
 	</svg>
 	<span id="test"></span>
       </th>
-      <th><center>
-
-	  <table>
-
-	    <tr>
-	      Station Information: Bakerloo - Kensal Green Stop</tr>
-
-	    <tr><th>Train #</th>
-              <th> Train coming in </th></tr>
-
-	    <tr><th>Train 3</th>
-              <th> 23 min </th></tr>
-
-	    <tr><th>Train 5</th>
-              <th> 33 min </th></tr>
-
-	</table></center>
-
-
-      </th>
     </tr>
     <form action = "/map" method = "GET">
       <tr>
@@ -185,7 +165,7 @@ p{
 	  <span class="checkmark"></span>
 	  </label>
 	  <label class="container">
-	  <input type="radio" name = "bound" value = "out"> Outbound 
+	  <input type="radio" name = "bound" value = "out"> Outbound
 	  <span class="checkmark"></span>
 	  </label>
 	  <br>
