@@ -111,6 +111,13 @@ function makeKey(){
        .attr("y", 532)
        .attr("fill","black").attr("font-size", 30)
        .text("∞");
+    svg.append("text")
+       .attr("text-anchor", "middle")
+       .attr("x", 850)
+       .attr("y", 515)
+       .attr("fill","black").attr("font-size", 20)
+       .text("Seconds to arrival");
+
 }
 
 function draw(lines, line, displayNames){
