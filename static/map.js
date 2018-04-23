@@ -60,15 +60,6 @@ function drawAll(lines){
     else draw(lines, lineName, true);
 }
 
-function color(seconds){
-    if(seconds >= 255){
-	return "#ffffff";
-    }
-    else{
-	return "#ff" + seconds.toString(16) + seconds.toString(16);
-    }
-}
-
 var interpolator = d3.interpolateMagma;
 
 function interpolateCustomKey(g){
@@ -122,43 +113,6 @@ function makeKey(){
        .text("∞");
 }
 
-function gradient(){
-    var svg = d3.select("svg");
-    var gradient = svg.append("linearGradient")
-	.attr("id", "svgGradient")
-	.attr("x1", "0%")
-	.attr("x2", "100%")
-	.attr("y1", "0%")
-	.attr("y2", "0%");
-    gradient.append("stop")
-	.attr('class', 'start')
-	.attr("offset", "0%")
-	.attr("stop-color", "cyan")
-	.attr("stop-opacity", 1);
-    gradient.append("stop")
-	.attr('class', 'start')
-	.attr("offset", "50%")
-	.attr("stop-color", "yellow")
-	.attr("stop-opacity", 1);
-    gradient.append("stop")
-	.attr('class', 'start')
-	.attr("offset", "100%")
-	.attr("stop-color", "red")
-	.attr("stop-opacity", 1);
-    var rect = svg.append("rect")
-	.attr("x", 745)
-	.attr("y", 550)
-	.attr("height", 50)
-	.attr("width", 255)
-	.attr("fill", "url(#svgGradient)");
-    var text = svg.append("text")
-	.attr("x", 745)
-	.attr("y", 550)
-	.text(">=255       0")
-	.attr("font-size",50)
-	.attr("font-family", "sans-serif");
-}
-
 function draw(lines, line, displayNames){
     //console.log(lines[line]['stops']);
     //console.log('line');
@@ -209,6 +163,10 @@ function draw(lines, line, displayNames){
         //console.log(Math.floor(d['lon'] * 3000 + .35 * 3000));
         return Math.floor((d['lon'] + .65) * 1100);
     });
+    stops.transition().duration(seconds * 1000).ease(d3.easeLinear)
+         .attrTween("fill", function(d){
+              return interpolateCustom(seconds);
+         });
             var names = container.selectAll("."+line+"-name").data(lines[line]['stops']).enter().append("text");
     if(displayNames){
         names.attr("y", function(d){
@@ -236,7 +194,7 @@ function draw(lines, line, displayNames){
                          container.attr("transform", d3.event.transform);
                      }))
     var seconds = 60;
-    stops.transition().duration(seconds * 1000).attrTween("fill", function(){return interpolateCustom(seconds)});
+    //stops.transition().duration(seconds * 1000).ease(d3.easeLinear).attrTween("fill", function(){return interpolateCustom(seconds)});
 
 
 };

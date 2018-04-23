@@ -55,14 +55,18 @@ def coords():
     stops = stops_file.readline()
     return stops
 
-@app.route('/times')
-def times():
-    u = requests.get("https://api.tfl.gov.uk/Mode/tube/Arrivals", data={"app_id":app_id, "app_key":app_key})
+@app.route('/times', methods = ['GET'])
+def times(line = 'N136'):
+    u = requests.get("https://api.tfl.gov.uk/line/"+line+"/arrivals", 
+        data={"app_id":app_id, "app_key":app_key})
     data_string = u.json()
     d = data_string
     print d
     return jsonify(d)
 
+@app.route('/times2', methods = ['GET'])
+def times2():
+    pass
 
 
 if __name__ == "__main__":
