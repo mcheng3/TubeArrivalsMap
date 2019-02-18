@@ -8,7 +8,7 @@ Contributors: Ishtiaque Mahdi (Project Manager) , Kerry Chen, Philip Park, Micha
 
 ## Relevance And Significance  
 
-  We all hate waiting for the bus and train. That's why our website will allow you to see London's transportation system LIVE! Our European friends will surely find this tool useful in their daily ventures and so will you if you ever visit London. In addition, this also serves as a prototype for our NYC's transit system site, however their API needs work. Until then, we will explore London's bustling transit network!
+  We all hate waiting for the bus and train. That's why our website will allow you to see London's transportation system LIVE! Our British friends will surely find this tool useful in their daily ventures and so will you if you ever visit London. In addition, this also serves as a prototype for our NYC's transit system site, however their API needs work. Until then, we will explore London's bustling transit network!
 
 ## Making The Data Come Alive  
 
