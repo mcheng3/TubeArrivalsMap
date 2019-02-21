@@ -3,7 +3,7 @@ import random
 import os
 import requests
 from ast import literal_eval
-import ast, json, urllib2
+import ast, json, urllib.request, urllib.error, urllib.parse
 
 key_file = open("keys.txt", "r")
 app_id = key_file.readline()

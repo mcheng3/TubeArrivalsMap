@@ -1,0 +1,7 @@
+virtualenv:
+  name: "polyforms.me"
+
+web:
+  -
+    name: "polyforms.me"
+    application: "main:app"
